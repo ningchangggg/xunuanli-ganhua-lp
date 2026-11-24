@@ -1,4 +1,4 @@
-"""幹話曆落地頁 v11（2026-11-24）：綜藝漫畫格版型。產出 page.html，432 寬。"""
+"""幹話曆落地頁 v13（2026-11-25）：綜藝漫畫格版型＋03c 送禮範例（丁丁三色禮盒）。產出 page.html，432 寬。"""
 import os, json, math, random
 D = os.path.dirname(os.path.abspath(__file__))
 
@@ -62,8 +62,8 @@ h2 .u{background:linear-gradient(transparent 62%,rgba(196,86,42,.28) 62%)}
 .tag small{font-family:Helvetica,Arial;font-weight:700;font-size:12px;letter-spacing:.1em;margin-right:6px;vertical-align:3px}
 .say{position:absolute;background:#fff;border:3px solid var(--ink);border-radius:22px;padding:9px 14px;font-size:19px;line-height:1.35;max-width:230px;z-index:3}
 .say:after{content:"";position:absolute;width:18px;height:18px;background:#fff;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);bottom:-11px;transform:rotate(45deg)}
-.card{position:absolute;width:232px;border:5px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.28);z-index:2}
-.card:before{content:"";position:absolute;width:90px;height:22px;background:rgba(196,86,42,.72);top:-15px;left:70px;transform:rotate(-5deg)}
+.card{position:absolute;width:204px;border:5px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.28);z-index:2}
+.card:before{content:"";position:absolute;width:80px;height:20px;background:rgba(196,86,42,.72);top:-14px;left:62px;transform:rotate(-5deg)}
 .stk{position:absolute;width:58px;height:58px;border-radius:50%;background:var(--or);border:3px solid var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:32px;font-family:LH;z-index:3}
 .nar{background:var(--ink);color:#fff;padding:12px 16px 13px;font-size:15px;line-height:1.6}
 .nar mark{background:none;color:var(--yl);font-weight:700;padding:0}
@@ -80,6 +80,19 @@ h2 .u{background:linear-gradient(transparent 62%,rgba(196,86,42,.28) 62%)}
 .xm .sp{position:absolute;width:14px;height:14px;margin:-7px;opacity:0;background:radial-gradient(circle,#FFF4C8 0 18%,transparent 20%),linear-gradient(0deg,transparent 45%,#FFE7A0 45% 55%,transparent 55%),linear-gradient(90deg,transparent 45%,#FFE7A0 45% 55%,transparent 55%);animation:tw 2.5s linear infinite}
 @keyframes sweep{0%{left:-40%}55%{left:120%}100%{left:120%}}
 @keyframes tw{0%,100%{opacity:0;transform:scale(.4)}12%{opacity:1;transform:scale(1.15) rotate(20deg)}26%{opacity:0;transform:scale(.4)}}
+/* s03c gift */
+#s03c{padding:30px 22px 22px}
+#s03c .pn{margin-top:30px}
+#s03d{padding:22px 22px 44px}
+#s03c .gb{height:477px}
+#s03d .gf{height:477px;background-position:center top}
+#s03c .chips{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--ink);background:#fff}
+#s03c .chips div{text-align:center;padding:9px 0 10px;font-family:LH;font-size:17px;border-left:3px solid var(--ink);color:#b3aaa2;transition:none}
+#s03c .chips div:first-child{border-left:none}
+#s03c .chips div.on{background:var(--yl);color:var(--ink)}
+#s03c .chips i{display:block;width:30px;height:12px;margin:0 auto 5px;border:2px solid var(--ink);border-radius:3px;opacity:.45}
+#s03c .chips div.on i{opacity:1}
+#s03c .gbst{position:absolute;right:-12px;top:388px;z-index:4}
 /* s04 */
 #s04{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:8px 22px 40px}
 #s04>div{background:#fff;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);text-align:center;padding:14px 4px 12px}
@@ -162,6 +175,25 @@ def s03b():
                  [(8, 18, 0), (90, 22, .5), (93, 74, 1.0), (6, 78, 1.5), (50, 8, 2.0)])
     return f'<section id="s03b"><div class="xm"><div class="sh"></div>{sp}<div class="en sm">CHRISTMAS DELIVERY</div><div class="big">聖誕節前到貨</div></div></section>'
 
+GIFT_CHIPS = json.load(open(f'{D}/gif/caps_g_box.json'))[0] if os.path.exists(f'{D}/gif/caps_g_box.json') else ''
+
+def s03c():
+    return f'''<section id="s03c"><div class="eb">送禮範例</div>
+<h2>還沒拆開，<br><span class="u">外盒就先讓人笑了</span></h2>
+<div class="lead">三款外盒，三種小白表情，<br>盒子就很精美，送禮直接加分。</div>
+<div class="pn" style="transform:rotate(-1deg)">
+<div class="tag lh"><small>GIFT BOX</small>三色禮盒</div>
+<div class="pic gb" data-clip="g_box" style="background-image:url(gif/clips/g_box/001.jpg)"></div>
+<div class="gbst">{burst('超可愛！', 112, 86, '#F6D34A', 6, 21)}</div>
+<div class="chips" data-caps="g_box">{GIFT_CHIPS}</div>
+<div class="nar">外盒跟底座同色，<mark>挑一個顏色就能送</mark>。</div></div></section>
+<section id="s03d"><div class="pn" style="transform:rotate(1deg)">
+<div class="tag lh"><small>EXAMPLE</small>交換禮物</div>
+<div class="pic gf" style="background-image:url(img/gift.jpg)">{speed_lines(235, 235, 56, (170, 210))}
+<div class="say lh" style="right:10px;top:26px" data-t="left:22px">交換禮物，<br>我就帶這盒！</div>
+<div class="stk" style="left:14px;bottom:150px;transform:rotate(-10deg)">♡</div></div>
+<div class="nar">拆開前先笑一次，翻開幹話<mark>再笑一次</mark>。</div></div></section>'''
+
 def s04():
     return '''<section id="s04"><div><div class="n">365</div><div class="c">句厭世幹話</div></div>
 <div><div class="n">365</div><div class="c">隻手繪小白</div></div>
@@ -233,7 +265,7 @@ def s12():
 <div class="end lh"><span class="en">TO BE CONTINUED</span>明天還有一句</div></div></div></section>'''
 
 def build():
-    body = (s03() + s03b() + s04() + s05()
+    body = (s03() + s03b() + s03c() + s04() + s05()
         + how(1, 's05a', '早上撕一頁，<br>先笑完再上班', '撕下今天這頁，一句幹話配一隻小白，<br>比咖啡還提神。', 'g_tear', '撕下今天', 'TEAR', burst('嘶～', 96, 74, '#fff', -8, 22), 'right:-10px;top:-26px')
         + s06()
         + how(2, 's06a', '好笑的那句，<br>貼到同事的螢幕上', '好笑不要獨享，<br>讓整個辦公室一起笑。', 'g_share', '分享同事', 'SHARE', burst('貼！', 96, 74, '#F6D34A', 6, 24), 'left:-12px;top:-26px')
@@ -241,7 +273,7 @@ def build():
         + how(4, 's08', '放在玄關，<br>每天都笑著出門！', '365 句不重複，<br>每天都在期待下一句。', 'g_flip', '笑到黑姑', 'LOL', burst('哈哈哈', 104, 80, '#F6D34A', 6, 19), 'left:-12px;top:-26px')
         + s09() + s10() + s11() + s12())
     js = '''<script>document.querySelectorAll('.say[data-t]').forEach((e,i)=>{const c='t'+i;e.classList.add(c);const s=document.createElement('style');s.textContent=`.${c}:after{${e.dataset.t}}`;document.head.appendChild(s)})</script>'''
-    html = f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=432"><title>幹話曆落地頁 v11</title><style>{CSS}</style></head><body>{body}{js}</body></html>'
+    html = f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=432"><title>幹話曆落地頁 v13</title><style>{CSS}</style></head><body>{body}{js}</body></html>'
     open(f'{D}/page.html', 'w').write(html)
     print('ok')
 
