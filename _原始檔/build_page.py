@@ -1,4 +1,4 @@
-"""幹話曆落地頁 v10（2026-11-24）：綜藝漫畫格版型。產出 page.html，432 寬。"""
+"""幹話曆落地頁 v11（2026-11-24）：綜藝漫畫格版型。產出 page.html，432 寬。"""
 import os, json, math, random
 D = os.path.dirname(os.path.abspath(__file__))
 
@@ -108,9 +108,11 @@ h2 .u{background:linear-gradient(transparent 62%,rgba(196,86,42,.28) 62%)}
 #s06 .pn{margin-top:22px;padding:58px 0 0}
 #s06 .cap small{font-family:Helvetica,Arial;font-size:11px;letter-spacing:.14em;color:var(--or)}
 #s06 .cap{position:absolute;top:0;left:0;right:0;background:var(--yl);border-bottom:3px solid var(--ink);padding:8px 10px;font-size:14px;line-height:1.45;text-align:center;font-weight:700;height:58px;flex-direction:column;display:flex;align-items:center;justify-content:center}
-#s06 .pg{position:relative;height:290px;background-size:80% auto;background-repeat:no-repeat;background-position:center 6px}
-#s06 .lb{position:absolute;display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:2px 10px 2px 3px;box-shadow:2px 2px 0 var(--ink)}
-#s06 .lb b{width:20px;height:20px;border-radius:50%;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px}
+#s06 .pg{position:relative;height:216px;background-size:252px auto;background-repeat:no-repeat;background-position:center 16px}
+#s06 .ln{position:absolute;border-top:2px dashed var(--ink);height:0}
+#s06 .pgc{position:absolute;left:64px;top:15px;width:254px;height:186px;border:1.5px solid #cfc6b8;box-shadow:0 4px 12px rgba(30,27,25,.16);border-radius:2px}
+#s06 .lb{position:absolute;width:62px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11.5px;font-weight:700;line-height:1.25;text-align:center;letter-spacing:-.02em}
+#s06 .lb b{width:22px;height:22px;border:2px solid var(--ink);border-radius:50%;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px}
 /* s09 */
 #s09 .pn{margin-top:22px;padding:18px 18px 10px}
 #s09 .tt{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px solid var(--ink);padding-bottom:10px}
@@ -194,10 +196,9 @@ def s06():
 <h2>一頁一句，<br><span class="u">每天換一種厭世</span></h2>
 <div class="pn"><div class="cap" data-caps="g_days">{caps[0]}</div>
 <div class="pg" data-clip="g_days" style="background-image:url(gif/clips/g_days/001.jpg)">
-<span class="lb" style="left:8px;top:54px"><b>1</b>日期</span>
-<span class="lb" style="right:8px;top:46px"><b>2</b>農曆與節氣</span>
-<span class="lb" style="left:8px;top:108px"><b>3</b>手繪小白</span>
-<span class="lb" style="left:50%;bottom:8px;transform:translateX(-50%)"><b>4</b>今日幹話</span></div></div></section>'''
+<span class="lb" style="left:0;top:22px"><b>1</b>日期</span><i class="ln" style="left:56px;width:24px;top:42px"></i>
+<span class="lb" style="right:0;top:18px"><b>2</b>農曆與節氣</span><i class="ln" style="right:56px;width:22px;top:38px"></i>
+<span class="lb" style="left:0;top:76px"><b>3</b>手繪小白</span><i class="ln" style="left:56px;width:40px;top:96px"></i><i class="pgc"></i></div></div></section>'''
 
 def s09():
     rows = [('成分', '365 句幹話、365 隻手繪小白、農曆節氣'),
@@ -237,10 +238,10 @@ def build():
         + s06()
         + how(2, 's06a', '好笑的那句，<br>貼到同事的螢幕上', '好笑不要獨享，<br>讓整個辦公室一起笑。', 'g_share', '分享同事', 'SHARE', burst('貼！', 96, 74, '#F6D34A', 6, 24), 'left:-12px;top:-26px')
         + how(3, 's07', '撕下來的每一頁，<br>貼成你的幹話牆', '一天一張，貼滿一整面，<br>這一年有多厭世，一看就知道。', 'g_wall', '貼成幹話牆', 'COLLECT', burst('啪！', 96, 74, '#fff', -6, 24), 'right:-10px;top:-26px')
-        + how(4, 's08', '想偷看明天？<br>翻開就知道', '365 句不重複，<br>每天都在期待下一句。', 'g_flip', '偷看明天', 'PEEK', burst('翻翻翻', 104, 80, '#F6D34A', 6, 19), 'left:-12px;top:-26px')
+        + how(4, 's08', '放在玄關，<br>每天都笑著出門！', '365 句不重複，<br>每天都在期待下一句。', 'g_flip', '笑到黑姑', 'LOL', burst('哈哈哈', 104, 80, '#F6D34A', 6, 19), 'left:-12px;top:-26px')
         + s09() + s10() + s11() + s12())
     js = '''<script>document.querySelectorAll('.say[data-t]').forEach((e,i)=>{const c='t'+i;e.classList.add(c);const s=document.createElement('style');s.textContent=`.${c}:after{${e.dataset.t}}`;document.head.appendChild(s)})</script>'''
-    html = f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=432"><title>幹話曆落地頁 v10</title><style>{CSS}</style></head><body>{body}{js}</body></html>'
+    html = f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=432"><title>幹話曆落地頁 v11</title><style>{CSS}</style></head><body>{body}{js}</body></html>'
     open(f'{D}/page.html', 'w').write(html)
     print('ok')
 

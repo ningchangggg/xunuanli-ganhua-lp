@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=432"><title>幹話曆落地頁 v10</title><style>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=432"><title>幹話曆落地頁 v11</title><style>
 @font-face{font-family:LH;src:url("LH.ttf")}
 :root{--or:#C4562A;--ink:#2B2622;--yl:#F6D34A;--paper:#FFF6DF;--navy:#1C2633}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -68,9 +68,11 @@ h2 .u{background:linear-gradient(transparent 62%,rgba(196,86,42,.28) 62%)}
 #s06 .pn{margin-top:22px;padding:58px 0 0}
 #s06 .cap small{font-family:Helvetica,Arial;font-size:11px;letter-spacing:.14em;color:var(--or)}
 #s06 .cap{position:absolute;top:0;left:0;right:0;background:var(--yl);border-bottom:3px solid var(--ink);padding:8px 10px;font-size:14px;line-height:1.45;text-align:center;font-weight:700;height:58px;flex-direction:column;display:flex;align-items:center;justify-content:center}
-#s06 .pg{position:relative;height:290px;background-size:80% auto;background-repeat:no-repeat;background-position:center 6px}
-#s06 .lb{position:absolute;display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:2px 10px 2px 3px;box-shadow:2px 2px 0 var(--ink)}
-#s06 .lb b{width:20px;height:20px;border-radius:50%;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px}
+#s06 .pg{position:relative;height:216px;background-size:252px auto;background-repeat:no-repeat;background-position:center 16px}
+#s06 .ln{position:absolute;border-top:2px dashed var(--ink);height:0}
+#s06 .pgc{position:absolute;left:64px;top:15px;width:254px;height:186px;border:1.5px solid #cfc6b8;box-shadow:0 4px 12px rgba(30,27,25,.16);border-radius:2px}
+#s06 .lb{position:absolute;width:62px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11.5px;font-weight:700;line-height:1.25;text-align:center;letter-spacing:-.02em}
+#s06 .lb b{width:22px;height:22px;border:2px solid var(--ink);border-radius:50%;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px}
 /* s09 */
 #s09 .pn{margin-top:22px;padding:18px 18px 10px}
 #s09 .tt{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px solid var(--ink);padding-bottom:10px}
@@ -138,10 +140,9 @@ h2 .u{background:linear-gradient(transparent 62%,rgba(196,86,42,.28) 62%)}
 <h2>一頁一句，<br><span class="u">每天換一種厭世</span></h2>
 <div class="pn"><div class="cap" data-caps="g_days"><small>JAN. 1</small>今天也沒有成為更好的人，但成功活到了今天。</div>
 <div class="pg" data-clip="g_days" style="background-image:url(gif/clips/g_days/001.jpg)">
-<span class="lb" style="left:8px;top:54px"><b>1</b>日期</span>
-<span class="lb" style="right:8px;top:46px"><b>2</b>農曆與節氣</span>
-<span class="lb" style="left:8px;top:108px"><b>3</b>手繪小白</span>
-<span class="lb" style="left:50%;bottom:8px;transform:translateX(-50%)"><b>4</b>今日幹話</span></div></div></section><section id="s06a" class="how"><div class="hd"><span class="no en">HOW TO USE 02</span>
+<span class="lb" style="left:0;top:22px"><b>1</b>日期</span><i class="ln" style="left:56px;width:24px;top:42px"></i>
+<span class="lb" style="right:0;top:18px"><b>2</b>農曆與節氣</span><i class="ln" style="right:56px;width:22px;top:38px"></i>
+<span class="lb" style="left:0;top:76px"><b>3</b>手繪小白</span><i class="ln" style="left:56px;width:40px;top:96px"></i><i class="pgc"></i></div></div></section><section id="s06a" class="how"><div class="hd"><span class="no en">HOW TO USE 02</span>
 <h3>好笑的那句，<br>貼到同事的螢幕上</h3><p class="d">好笑不要獨享，<br>讓整個辦公室一起笑。</p></div>
 <div class="pn"><div class="ph" data-clip="g_share" style="background-image:url(gif/clips/g_share/001.jpg)"></div>
 <div class="sfx" style="left:-12px;top:-26px"><div class="burst" style="width:96px;height:74px"><svg viewBox="0 0 160 124" width="96" height="74"><polygon points="155.0,62.0 136.1,71.7 147.6,86.7 125.0,89.2 126.8,106.6 104.9,101.4 96.7,117.6 80.0,105.7 63.3,117.6 55.1,101.4 33.2,106.6 35.0,89.2 12.4,86.7 23.9,71.7 5.0,62.0 23.9,52.3 12.4,37.3 35.0,34.8 33.2,17.4 55.1,22.6 63.3,6.4 80.0,18.3 96.7,6.4 104.9,22.6 126.8,17.4 125.0,34.8 147.6,37.3 136.1,52.3" fill="#F6D34A" stroke="#2B2622" stroke-width="3"/></svg><div class="bt lh" style="transform:rotate(6deg);font-size:24px">貼！</div></div></div>
@@ -150,10 +151,10 @@ h2 .u{background:linear-gradient(transparent 62%,rgba(196,86,42,.28) 62%)}
 <div class="pn"><div class="ph" data-clip="g_wall" style="background-image:url(gif/clips/g_wall/001.jpg)"></div>
 <div class="sfx" style="right:-10px;top:-26px"><div class="burst" style="width:96px;height:74px"><svg viewBox="0 0 160 124" width="96" height="74"><polygon points="155.0,62.0 136.1,71.7 147.6,86.7 125.0,89.2 126.8,106.6 104.9,101.4 96.7,117.6 80.0,105.7 63.3,117.6 55.1,101.4 33.2,106.6 35.0,89.2 12.4,86.7 23.9,71.7 5.0,62.0 23.9,52.3 12.4,37.3 35.0,34.8 33.2,17.4 55.1,22.6 63.3,6.4 80.0,18.3 96.7,6.4 104.9,22.6 126.8,17.4 125.0,34.8 147.6,37.3 136.1,52.3" fill="#fff" stroke="#2B2622" stroke-width="3"/></svg><div class="bt lh" style="transform:rotate(-6deg);font-size:24px">啪！</div></div></div>
 <div class="bar"><span class="st en">STEP 03</span><span class="cn lh">貼成幹話牆</span><span class="ee en">COLLECT</span></div></div></section><section id="s08" class="how"><div class="hd"><span class="no en">HOW TO USE 04</span>
-<h3>想偷看明天？<br>翻開就知道</h3><p class="d">365 句不重複，<br>每天都在期待下一句。</p></div>
+<h3>放在玄關，<br>每天都笑著出門！</h3><p class="d">365 句不重複，<br>每天都在期待下一句。</p></div>
 <div class="pn"><div class="ph" data-clip="g_flip" style="background-image:url(gif/clips/g_flip/001.jpg)"></div>
-<div class="sfx" style="left:-12px;top:-26px"><div class="burst" style="width:104px;height:80px"><svg viewBox="0 0 160 124" width="104" height="80"><polygon points="155.0,62.0 136.1,71.7 147.6,86.7 125.0,89.2 126.8,106.6 104.9,101.4 96.7,117.6 80.0,105.7 63.3,117.6 55.1,101.4 33.2,106.6 35.0,89.2 12.4,86.7 23.9,71.7 5.0,62.0 23.9,52.3 12.4,37.3 35.0,34.8 33.2,17.4 55.1,22.6 63.3,6.4 80.0,18.3 96.7,6.4 104.9,22.6 126.8,17.4 125.0,34.8 147.6,37.3 136.1,52.3" fill="#F6D34A" stroke="#2B2622" stroke-width="3"/></svg><div class="bt lh" style="transform:rotate(6deg);font-size:19px">翻翻翻</div></div></div>
-<div class="bar"><span class="st en">STEP 04</span><span class="cn lh">偷看明天</span><span class="ee en">PEEK</span></div></div></section><section id="s09"><div class="eb">本品為日曆，不是藥</div>
+<div class="sfx" style="left:-12px;top:-26px"><div class="burst" style="width:104px;height:80px"><svg viewBox="0 0 160 124" width="104" height="80"><polygon points="155.0,62.0 136.1,71.7 147.6,86.7 125.0,89.2 126.8,106.6 104.9,101.4 96.7,117.6 80.0,105.7 63.3,117.6 55.1,101.4 33.2,106.6 35.0,89.2 12.4,86.7 23.9,71.7 5.0,62.0 23.9,52.3 12.4,37.3 35.0,34.8 33.2,17.4 55.1,22.6 63.3,6.4 80.0,18.3 96.7,6.4 104.9,22.6 126.8,17.4 125.0,34.8 147.6,37.3 136.1,52.3" fill="#F6D34A" stroke="#2B2622" stroke-width="3"/></svg><div class="bt lh" style="transform:rotate(6deg);font-size:19px">哈哈哈</div></div></div>
+<div class="bar"><span class="st en">STEP 04</span><span class="cn lh">笑到黑姑</span><span class="ee en">LOL</span></div></div></section><section id="s09"><div class="eb">本品為日曆，不是藥</div>
 <h2>上班前，<br><span class="u">請先服用一頁</span></h2>
 <div class="pn" style="transform:rotate(-.6deg)"><div class="tt"><span class="a">幹話日曆 2027</span><span class="b">使用說明書｜請詳閱後再上班</span></div>
 <dl><dt>成分</dt><dd>365 句幹話、365 隻手繪小白、農曆節氣</dd><dt>適應症</dt><dd>週一症候群、開會前焦慮、選禮物困難</dd><dt>用法用量</dt><dd>每日一次，早上撕一頁；必要時傳給同事</dd><dt>副作用</dt><dd>上班笑出聲、被隔壁同事借走不還</dd><dt>注意事項</dt><dd>請勿放在老闆看得到的地方</dd><dt>保存方式</dt><dd>辦公桌上，伸手撕得到的地方</dd></dl><div class="seal"><div class="burst" style="width:110px;height:86px"><svg viewBox="0 0 160 124" width="110" height="86"><polygon points="155.0,62.0 136.1,71.7 147.6,86.7 125.0,89.2 126.8,106.6 104.9,101.4 96.7,117.6 80.0,105.7 63.3,117.6 55.1,101.4 33.2,106.6 35.0,89.2 12.4,86.7 23.9,71.7 5.0,62.0 23.9,52.3 12.4,37.3 35.0,34.8 33.2,17.4 55.1,22.6 63.3,6.4 80.0,18.3 96.7,6.4 104.9,22.6 126.8,17.4 125.0,34.8 147.6,37.3 136.1,52.3" fill="#F6D34A" stroke="#2B2622" stroke-width="3"/></svg><div class="bt lh" style="transform:rotate(8deg);font-size:19px">每日<br>一頁</div></div></div></div></section><section id="s10"><div class="eb">底座款式</div>
