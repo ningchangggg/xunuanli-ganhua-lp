@@ -1,4 +1,4 @@
-"""幹話曆落地頁 v9（2026-11-24）：綜藝漫畫格版型。產出 page.html，432 寬。"""
+"""幹話曆落地頁 v10（2026-11-24）：綜藝漫畫格版型。產出 page.html，432 寬。"""
 import os, json, math, random
 D = os.path.dirname(os.path.abspath(__file__))
 
@@ -9,13 +9,13 @@ P = [
          s='不灌雞湯，不說加油，一句幹話就讓你<mark>笑出來</mark>。'),
     dict(n='03', who='交換禮物', h='預算一千，<br>送一個全場笑翻的禮物', img='p3', pg='d003',
          s='拆開那一刻<mark>全場笑翻</mark>，抽到的人每天都想起你。'),
-    dict(n='04', who='聖誕禮物', h='送給每天辛苦上班的他', img='p4', pg='d017',
+    dict(n='04', who='聖誕禮物', h='送給每天辛苦上班的他', img='p4', pg='d035',
          s='每天早上撕一句幹話，陪他<mark>笑著上班 365 天</mark>。'),
 ]
 L = [
-    dict(c=(230, 150), say='right:12px;top:22px', tail='right:40px', card='left:14px;bottom:16px;transform:rotate(-7deg)', stk=('？', 'right:18px;bottom:110px;transform:rotate(10deg)'), rot=-1),
-    dict(c=(150, 150), say='right:12px;top:24px', tail='left:30px', card='right:14px;bottom:18px;transform:rotate(6deg)', stk=('哈', 'left:18px;bottom:40px;transform:rotate(-12deg)'), rot=1),
-    dict(c=(160, 110), say='right:10px;top:14px', tail='left:26px', card='right:12px;bottom:20px;transform:rotate(7deg)', stk=('！', 'left:18px;bottom:30px;transform:rotate(-8deg)'), rot=-1),
+    dict(c=(230, 150), say='right:12px;top:22px', tail='right:40px', card='right:8px;bottom:10px;transform:rotate(6deg)', stk=('？', 'left:20px;top:110px;transform:rotate(-10deg)'), rot=-1),
+    dict(c=(150, 150), say='right:12px;top:24px', tail='left:30px', card='right:6px;bottom:6px;transform:rotate(6deg)', stk=('哈', 'left:18px;bottom:40px;transform:rotate(-12deg)'), rot=1),
+    dict(c=(160, 110), say='right:10px;top:14px', tail='left:26px', card='right:4px;bottom:8px;transform:rotate(7deg)', stk=('！', 'left:18px;bottom:30px;transform:rotate(-8deg)'), rot=-1),
     dict(c=(110, 120), say='right:12px;top:26px', tail='left:26px', card='right:14px;bottom:22px;transform:rotate(-6deg)', stk=('♡', 'right:30px;top:140px;transform:rotate(10deg)'), rot=1),
 ]
 
@@ -62,8 +62,8 @@ h2 .u{background:linear-gradient(transparent 62%,rgba(196,86,42,.28) 62%)}
 .tag small{font-family:Helvetica,Arial;font-weight:700;font-size:12px;letter-spacing:.1em;margin-right:6px;vertical-align:3px}
 .say{position:absolute;background:#fff;border:3px solid var(--ink);border-radius:22px;padding:9px 14px;font-size:19px;line-height:1.35;max-width:230px;z-index:3}
 .say:after{content:"";position:absolute;width:18px;height:18px;background:#fff;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);bottom:-11px;transform:rotate(45deg)}
-.card{position:absolute;width:170px;border:5px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.28);z-index:2}
-.card:before{content:"";position:absolute;width:74px;height:20px;background:rgba(196,86,42,.72);top:-14px;left:46px;transform:rotate(-5deg)}
+.card{position:absolute;width:232px;border:5px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.28);z-index:2}
+.card:before{content:"";position:absolute;width:90px;height:22px;background:rgba(196,86,42,.72);top:-15px;left:70px;transform:rotate(-5deg)}
 .stk{position:absolute;width:58px;height:58px;border-radius:50%;background:var(--or);border:3px solid var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:32px;font-family:LH;z-index:3}
 .nar{background:var(--ink);color:#fff;padding:12px 16px 13px;font-size:15px;line-height:1.6}
 .nar mark{background:none;color:var(--yl);font-weight:700;padding:0}
@@ -240,7 +240,7 @@ def build():
         + how(4, 's08', '想偷看明天？<br>翻開就知道', '365 句不重複，<br>每天都在期待下一句。', 'g_flip', '偷看明天', 'PEEK', burst('翻翻翻', 104, 80, '#F6D34A', 6, 19), 'left:-12px;top:-26px')
         + s09() + s10() + s11() + s12())
     js = '''<script>document.querySelectorAll('.say[data-t]').forEach((e,i)=>{const c='t'+i;e.classList.add(c);const s=document.createElement('style');s.textContent=`.${c}:after{${e.dataset.t}}`;document.head.appendChild(s)})</script>'''
-    html = f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=432"><title>幹話曆落地頁 v9</title><style>{CSS}</style></head><body>{body}{js}</body></html>'
+    html = f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=432"><title>幹話曆落地頁 v10</title><style>{CSS}</style></head><body>{body}{js}</body></html>'
     open(f'{D}/page.html', 'w').write(html)
     print('ok')
 
